@@ -104,6 +104,7 @@ namespace Models
 			r.robotDropped = false;
 			List<string> path = FindRoute(begin, end);
 			r.GetPath(r._target, path, iList, xList, zList);
+		
 		}
 
 		private List<string> FindRoute(string start, string destination)

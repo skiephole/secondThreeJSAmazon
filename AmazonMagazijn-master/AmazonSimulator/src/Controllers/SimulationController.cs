@@ -130,7 +130,7 @@ namespace Controllers
 
 				if (ReadySetGo == 4)
 				{
-					van.vanEmpty = true;
+					
 					robot1.robotDone = false;
 					robot2.robotDone = false;
 					robot3.robotDone = false;
@@ -172,11 +172,13 @@ namespace Controllers
 				{
 					ReadySetGo = 0;
 					cycles++;
+					
 					robot1.RESET();
 					robot2.RESET();
 					robot3.RESET();
 					robot4.RESET();
 					van.RESET();
+					
 					// world.RESET();
 				}
 
