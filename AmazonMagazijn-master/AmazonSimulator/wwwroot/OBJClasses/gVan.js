@@ -1,4 +1,4 @@
-class gThunderHawk extends THREE.Group
+class gVan extends THREE.Group
 {
 	constructor()
 	{

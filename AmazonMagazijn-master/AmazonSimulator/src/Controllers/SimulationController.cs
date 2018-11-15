@@ -57,7 +57,7 @@ namespace Controllers
 
 			while (running)
 			{
-				ThunderHawk thunderhawk = (ThunderHawk)world.worldObjects[4];
+				Van van = (Van)world.worldObjects[4];
 				Robot robot1 = (Robot)world.worldObjects[0];
 				Robot robot2 = (Robot)world.worldObjects[1];
 				Robot robot3 = (Robot)world.worldObjects[2];
@@ -67,12 +67,12 @@ namespace Controllers
 				Shelf shelf3 = (Shelf)world.worldObjects[30 + (4 * cycles)];
 				Shelf shelf4 = (Shelf)world.worldObjects[31 + (4 * cycles)];
 
-				if (thunderhawk.thunderhawkHere == true)
+				if (van.vanHere == true)
 				{
-					robot1.thunderhawkHere = true;
-					robot2.thunderhawkHere = true;
-					robot3.thunderhawkHere = true;
-					robot4.thunderhawkHere = true;
+					robot1.vanHere = true;
+					robot2.vanHere = true;
+					robot3.vanHere = true;
+					robot4.vanHere = true;
 				}
 
 				if (robot1.robotReady == true)
@@ -130,7 +130,7 @@ namespace Controllers
 
 				if (ReadySetGo == 4)
 				{
-					thunderhawk.thunderhawkEmpty = true;
+					van.vanEmpty = true;
 					robot1.robotDone = false;
 					robot2.robotDone = false;
 					robot3.robotDone = false;
@@ -176,7 +176,7 @@ namespace Controllers
 					robot2.RESET();
 					robot3.RESET();
 					robot4.RESET();
-					thunderhawk.RESET();
+					van.RESET();
 					// world.RESET();
 				}
 

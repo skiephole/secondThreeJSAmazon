@@ -108,10 +108,10 @@ window.onload = function ()
 
 			if (Object.keys(worldObjects).indexOf(command.parameters.guid) < 0)
 			{
-				if (command.parameters.type == "thunderhawk")
+				if (command.parameters.type == "van")
 				{
 					console.log(command);
-					th = new gThunderHawk();
+					th = new gVan();
 
 					var group = new THREE.Group();
 					group.add(th);

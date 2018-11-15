@@ -15,7 +15,7 @@ namespace Models
 		private int hazRunTheSecond = 0;
 		private int _counter; //counter that starts when <thHere == true>, sets <rReady> to true
 		private int ogCounter;
-		public bool thunderhawkHere = false; //is there a thunderhawk docked
+		public bool vanHere = false; //is there a van docked
 		public bool robotPath = false;
 		public bool robotReady = false; //is the robot ready to receive a shelf
 		public bool robotLoaded = false; //is the robot carrying a shelf
@@ -106,7 +106,7 @@ namespace Models
 				}
 			}
 
-			if (thunderhawkHere && _counter > 0)
+			if (vanHere && _counter > 0)
 			{
 				_counter--;
 				Console.WriteLine(_counter);
@@ -125,7 +125,7 @@ namespace Models
 			hazRun = 0;
 			hazRunTheSecond = 0;
 			_counter = ogCounter;
-			thunderhawkHere = false;
+			vanHere = false;
 			robotPath = false;
 			robotReady = false;
 			robotLoaded = false;

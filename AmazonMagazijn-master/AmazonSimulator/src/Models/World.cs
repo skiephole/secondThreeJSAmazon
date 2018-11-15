@@ -16,7 +16,7 @@ namespace Models
 		private List<IObserver<Command>> observers = new List<IObserver<Command>>();
 
 		Robot robot1, robot2, robot3, robot4;
-		ThunderHawk thunderhawk;
+		Van van;
 		Shelf shelf1, shelf2, shelf3, shelf4, shelf5, shelf6, shelf7, shelf8, shelf9, shelf10, shelf11, shelf12, shelf13, shelf14, shelf15, shelf16, shelf17, shelf18, shelf19, shelf20;
 
 		public World()
@@ -25,7 +25,7 @@ namespace Models
 			robot2 = CreateRobot("r2", 0, 0.301, -4, 100);
 			robot3 = CreateRobot("r3", 0, 0.301, -8, 150);
 			robot4 = CreateRobot("r4", 0, 0.301, -12, 200);
-			thunderhawk = CreateTH(-150, 0.001, -21);
+			van = CreateTH(-150, 0.001, -21);
 			MakeNodes(23/* + 64*/);
 			shelf1 = CreateShelf(-300, 1.401, -300);
 			shelf2 = CreateShelf(-300, 1.401, -300);
@@ -64,9 +64,9 @@ namespace Models
 			return r;
 		}
 
-		private ThunderHawk CreateTH(double x, double y, double z)
+		private Van CreateTH(double x, double y, double z)
 		{
-			ThunderHawk t = new ThunderHawk(x, y, z, 0, (90 * Math.PI / 180), 0);
+			Van t = new Van(x, y, z, 0, (90 * Math.PI / 180), 0);
 			worldObjects.Add(t);
 			return t;
 		}
