@@ -43,7 +43,7 @@ class gRobot extends THREE.Group
 		var mtlLoader = new THREE.MTLLoader();
 		mtlLoader.setTexturePath('/textures/robot/');
 		mtlLoader.setPath('/textures/robot/');
-		mtlLoader.load('Cart.mtl', function (materials)
+		mtlLoader.load('wheelBarrel.mtl', function (materials)
 		{
 			materials.preload();
 			var objLoader = new THREE.OBJLoader();
@@ -51,9 +51,9 @@ class gRobot extends THREE.Group
 			objLoader.setMaterials(materials);
 			objLoader.setPath('/textures/robot/');
 
-			objLoader.load('Cart.obj', function (object)
+			objLoader.load('wheelBarrel.obj', function (object)
 			{
-				object.scale.set(5, 5, 5);
+				object.scale.set(1, 1, 1);
 				object.receiveShadow = true;
 				object.castShadow = true;
 
