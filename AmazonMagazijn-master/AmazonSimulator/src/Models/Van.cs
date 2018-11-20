@@ -7,9 +7,16 @@ namespace Models
 {
 	public class Van : Model
 	{
-		private int _counter = 100;
 		public bool vanHere = false;
-		public static bool vanFullAgain = false;
+
+		public void SetVanFullAgain(bool full){
+			if (full == true)
+			{
+				this.Move(this.x + 2, this.y, this.z);
+				vanHere = false;
+
+			}
+		}
 
 		public Van(double x, double y, double z, double rotationX, double rotationY, double rotationZ) : base("van", x, y, z, rotationX, rotationY, rotationZ)
 		{
@@ -21,17 +28,13 @@ namespace Models
 			if (this._x == -20)
 			{
 				vanHere = true;
-				vanFullAgain = false;
-
 			}
 			else
 			{
 				vanHere = false;
 			}
-
-			if (vanHere)
-			{
-
+			if(this._x >= 100){
+				RESET();
 			}
 
 			else if (!vanHere)
@@ -40,26 +43,11 @@ namespace Models
 				
 			}
 
-			else if (vanFullAgain == true)
-			{
-				if (_counter <= 0)
-				{
-					this.Move(this.x + 2, this.y, this.z);
-					vanHere = false;
-				}
-
-				_counter--;
-			}
-
-			else
-			{
-			}
-
 			return base.Update(tick);
 
 		}
 
-		public void RESET()
+		private void RESET()
 		{
 			vanHere = false;
 

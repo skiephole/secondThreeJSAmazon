@@ -66,8 +66,8 @@ namespace Controllers
 				Shelf shelf2 = (Shelf)world.worldObjects[29 + (4 * cycles)];
 				Shelf shelf3 = (Shelf)world.worldObjects[30 + (4 * cycles)];
 				Shelf shelf4 = (Shelf)world.worldObjects[31 + (4 * cycles)];
-
-				if (van.vanHere == true)
+				
+				 if (van.vanHere == true)
 				{
 					robot1.vanHere = true;
 					robot2.vanHere = true;
@@ -177,9 +177,7 @@ namespace Controllers
 					robot2.RESET();
 					robot3.RESET();
 					robot4.RESET();
-					van.RESET();
-					
-					// world.RESET();
+					van.SetVanFullAgain(true);
 				}
 
 				world.Update(tickTime);
