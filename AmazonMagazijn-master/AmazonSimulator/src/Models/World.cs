@@ -17,8 +17,9 @@ namespace Models
 
 		Robot robot1, robot2, robot3, robot4;
 		Van van;
-		Shelf shelf1, shelf2, shelf3, shelf4, shelf5, shelf6, shelf7, shelf8, shelf9, shelf10, shelf11, shelf12, shelf13, shelf14, shelf15, shelf16, shelf17, shelf18, shelf19, shelf20;
-
+		Shelf shelf1, shelf2, shelf3, shelf4, shelf5, shelf6, shelf7, shelf8;
+		
+		
 		public World()
 		{
 			robot1 = CreateRobot("r1", 0, 0.301, 0, 50);
@@ -35,18 +36,8 @@ namespace Models
 			shelf6 = CreateShelf(-300, 1.401, -300);
 			shelf7 = CreateShelf(-300, 1.401, -300);
 			shelf8 = CreateShelf(-300, 1.401, -300);
-			shelf9 = CreateShelf(-300, 1.401, -300);
-			shelf10 = CreateShelf(-300, 1.401, -300);
-			shelf11 = CreateShelf(-300, 1.401, -300);
-			shelf12 = CreateShelf(-300, 1.401, -300);
-			shelf13 = CreateShelf(-300, 1.401, -300);
-			shelf14 = CreateShelf(-300, 1.401, -300);
-			shelf15 = CreateShelf(-300, 1.401, -300);
-			shelf16 = CreateShelf(-300, 1.401, -300);
-			shelf17 = CreateShelf(-300, 1.401, -300);
-			shelf18 = CreateShelf(-300, 1.401, -300);
-			shelf19 = CreateShelf(-300, 1.401, -300);
-			shelf20 = CreateShelf(-300, 1.401, -300);
+			StartShelves();
+			
 		}
 
 		public void THHere()
@@ -78,7 +69,26 @@ namespace Models
 			return s;
 		}
 
-
+		public void StartShelves()
+		{
+			Random rnd = new Random();
+			int shelfPlace5 = rnd.Next(23, 87);
+			string defShelfPlace5 = iList[shelfPlace5];
+			shelf5._x = xList[shelfPlace5];
+			shelf5._z = zList[shelfPlace5];
+			int shelfPlace6 = rnd.Next(23, 87);
+			string defShelfPlace6 = iList[shelfPlace6];
+			shelf6._x = xList[shelfPlace6];
+			shelf6._z = zList[shelfPlace6];
+			int shelfPlace7 = rnd.Next(23, 87);
+			string defShelfPlace7 = iList[shelfPlace7];
+			shelf7._x = xList[shelfPlace7];
+			shelf7._z = zList[shelfPlace7];
+			int shelfPlace8 = rnd.Next(23, 87);
+			string defShelfPlace8 = iList[shelfPlace8];
+			shelf8._x = xList[shelfPlace8];
+			shelf8._z = zList[shelfPlace8];
+		}
 		public void AddShelfToRobot(Robot r, Shelf s)
 		{
 			s._x = r._x;
