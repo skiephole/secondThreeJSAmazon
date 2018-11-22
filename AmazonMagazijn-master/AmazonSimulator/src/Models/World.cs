@@ -18,6 +18,10 @@ namespace Models
 		Robot robot1, robot2, robot3, robot4;
 		Van van;
 		Shelf shelf1, shelf2, shelf3, shelf4, shelf5, shelf6, shelf7, shelf8;
+
+		public string defShelfPlace5, defShelfPlace6, defShelfPlace7, defShelfPlace8;
+
+		public int shelfPlace5, shelfPlace6, shelfPlace7, shelfPlace8;
 		
 		
 		public World()
@@ -42,10 +46,12 @@ namespace Models
 
 		public void THHere()
 		{
+			
 			RobotOnPath(robot1, "A");
 			RobotOnPath(robot2, "null1");
 			RobotOnPath(robot3, "null2");
 			RobotOnPath(robot4, "null3");
+		
 		}
 
 		private Robot CreateRobot(string rName, double x, double y, double z, int counter)
@@ -72,20 +78,20 @@ namespace Models
 		public void StartShelves()
 		{
 			Random rnd = new Random();
-			int shelfPlace5 = rnd.Next(23, 87);
-			string defShelfPlace5 = iList[shelfPlace5];
+			shelfPlace5 = rnd.Next(23, 87);
+			defShelfPlace5 = iList[shelfPlace5];
 			shelf5._x = xList[shelfPlace5];
 			shelf5._z = zList[shelfPlace5];
-			int shelfPlace6 = rnd.Next(23, 87);
-			string defShelfPlace6 = iList[shelfPlace6];
+			shelfPlace6 = rnd.Next(23, 87);
+			defShelfPlace6 = iList[shelfPlace6];
 			shelf6._x = xList[shelfPlace6];
 			shelf6._z = zList[shelfPlace6];
-			int shelfPlace7 = rnd.Next(23, 87);
-			string defShelfPlace7 = iList[shelfPlace7];
+			shelfPlace7 = rnd.Next(23, 87);
+			defShelfPlace7 = iList[shelfPlace7];
 			shelf7._x = xList[shelfPlace7];
 			shelf7._z = zList[shelfPlace7];
-			int shelfPlace8 = rnd.Next(23, 87);
-			string defShelfPlace8 = iList[shelfPlace8];
+			shelfPlace8 = rnd.Next(23, 87);
+			defShelfPlace8 = iList[shelfPlace8];
 			shelf8._x = xList[shelfPlace8];
 			shelf8._z = zList[shelfPlace8];
 		}
@@ -98,6 +104,7 @@ namespace Models
 
 		private void RobotOnPath(Robot r, string begin)
 		{
+			
 			if (r.robotPath == false)
 			{
 				r.robotPath = true;
@@ -108,10 +115,32 @@ namespace Models
 				r.GetPath(target, path, iList, xList, zList);
 			}
 		}
-
-		public void RobotGoesBack(Robot r, string begin, string end)
+		public void RobotGetShelf(Robot r, string begin, string end)
 		{
 			r.robotDropped = false;
+			List<string> path = FindRoute(begin, end);
+			r.GetPath(r._target, path, iList, xList, zList);
+			if((robot1._x == shelf5._x) && (robot1._z == shelf5._z)){
+				robot1.robotPickedUp = true;
+				RobotGoesBack(robot1, defShelfPlace5, "A");
+			}
+			if((robot2._x == shelf6._x) && (robot2._z == shelf6._z)){
+				robot2.robotPickedUp = true;
+				RobotGoesBack(robot2, defShelfPlace6, "null1");
+			}
+			if((robot3._x == shelf7._x) && (robot3._z == shelf7._z)){
+				robot3.robotPickedUp = true;
+				RobotGoesBack(robot3, defShelfPlace7, "null2");
+			}
+			if((robot4._x == shelf8._x) && (robot4._z == shelf8._z)){
+				robot4.robotPickedUp = true;
+				RobotGoesBack(robot4, defShelfPlace8, "null3");
+			}
+		
+		}
+		public void RobotGoesBack(Robot r, string begin, string end)
+		{
+			r.robotPickedUp = false;
 			List<string> path = FindRoute(begin, end);
 			r.GetPath(r._target, path, iList, xList, zList);
 		
