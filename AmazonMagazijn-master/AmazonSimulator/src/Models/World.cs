@@ -22,7 +22,12 @@ namespace Models
 		public string defShelfPlace5, defShelfPlace6, defShelfPlace7, defShelfPlace8;
 
 		public int shelfPlace5, shelfPlace6, shelfPlace7, shelfPlace8;
-		
+		private bool whichrun = false;
+		public bool whichRun
+		{
+			get { return whichRun; }
+			set { whichRun = value; }
+		}
 		
 		public World()
 		{

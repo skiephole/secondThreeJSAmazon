@@ -62,10 +62,10 @@ namespace Controllers
 				Robot robot2 = (Robot)world.worldObjects[1];
 				Robot robot3 = (Robot)world.worldObjects[2];
 				Robot robot4 = (Robot)world.worldObjects[3];
-				Shelf shelf1 = (Shelf)world.worldObjects[28 + (4 * cycles)];
-				Shelf shelf2 = (Shelf)world.worldObjects[29 + (4 * cycles)];
-				Shelf shelf3 = (Shelf)world.worldObjects[30 + (4 * cycles)];
-				Shelf shelf4 = (Shelf)world.worldObjects[31 + (4 * cycles)];
+				// Shelf shelf1 = (Shelf)world.worldObjects[28 + (4 * cycles)];
+				// Shelf shelf2 = (Shelf)world.worldObjects[29 + (4 * cycles)];
+				// Shelf shelf3 = (Shelf)world.worldObjects[30 + (4 * cycles)];
+				// Shelf shelf4 = (Shelf)world.worldObjects[31 + (4 * cycles)];
 
 				if (van.VanHere == true)
 				{
@@ -77,16 +77,16 @@ namespace Controllers
 
 				if (robot1.robotReady == true)
 				{
-					world.AddShelfToRobot(robot1, shelf1);
-					shelf1.needsUpdate = true;
+					world.AddShelfToRobot(robot1, world.shelf1);
+					world.shelf1.needsUpdate = true;
 					robot1.robotLoaded = true;
 					ReadySetGo++;
 				}
 
 				if (robot2.robotReady == true)
 				{
-					world.AddShelfToRobot(robot2, shelf2);
-					shelf2.needsUpdate = true;
+					world.AddShelfToRobot(robot2, world.shelf2);
+					world.shelf2.needsUpdate = true;
 					robot2.robotLoaded = true;
 					ReadySetGo++;
 				}
@@ -94,16 +94,16 @@ namespace Controllers
 				if (robot3.robotReady == true)
 				{
 
-					world.AddShelfToRobot(robot3, shelf3);
-					shelf3.needsUpdate = true;
+					world.AddShelfToRobot(robot3, world.shelf3);
+					world.shelf3.needsUpdate = true;
 					robot3.robotLoaded = true;
 					ReadySetGo++;
 				}
 
 				if (robot4.robotReady == true)
 				{
-					world.AddShelfToRobot(robot4, shelf4);
-					shelf4.needsUpdate = true;
+					world.AddShelfToRobot(robot4, world.shelf4);
+					world.shelf4.needsUpdate = true;
 					robot4.robotLoaded = true;
 					ReadySetGo++;
 				}
@@ -111,28 +111,28 @@ namespace Controllers
 				if (robot1.robotDropped == true)
 				{
 					world.RobotGetShelf(robot1, robot1._target, world.defShelfPlace5);
-					shelf1.needsUpdate = true;
+					world.shelf1.needsUpdate = true;
 					ReadySetGo++;
 				}
 
 				if (robot2.robotDropped == true)
 				{
 					world.RobotGetShelf(robot2, robot2._target, world.defShelfPlace6);
-					shelf2.needsUpdate = true;
+					world.shelf2.needsUpdate = true;
 					ReadySetGo++;
 				}
 
 				if (robot3.robotDropped == true)
 				{
 					world.RobotGetShelf(robot3, robot3._target, world.defShelfPlace7);
-					shelf3.needsUpdate = true;
+					world.shelf3.needsUpdate = true;
 					ReadySetGo++;
 				}
 
 				if (robot4.robotDropped == true)
 				{
 					world.RobotGetShelf(robot4, robot4._target, world.defShelfPlace8);
-					shelf4.needsUpdate = true;
+					world.shelf4.needsUpdate = true;
 					ReadySetGo++;
 				}
 
@@ -194,30 +194,30 @@ namespace Controllers
 
 				if ((robot1.robotReady == true || robot1.robotDone == false) && robot1.robotPlaced == false)
 				{
-					shelf1._x = robot1._x;
-					shelf1._z = robot1._z;
-					shelf1.needsUpdate = true;
+					world.shelf1._x = robot1._x;
+					world.shelf1._z = robot1._z;
+					world.shelf1.needsUpdate = true;
 				}
 
 				if ((robot2.robotReady == true || robot2.robotDone == false) && robot2.robotPlaced == false)
 				{
-					shelf2._x = robot2._x;
-					shelf2._z = robot2._z;
-					shelf2.needsUpdate = true;
+					world.shelf2._x = robot2._x;
+					world.shelf2._z = robot2._z;
+					world.shelf2.needsUpdate = true;
 				}
 
 				if ((robot3.robotReady == true || robot3.robotDone == false) && robot3.robotPlaced == false)
 				{
-					shelf3._x = robot3._x;
-					shelf3._z = robot3._z;
-					shelf3.needsUpdate = true;
+					world.shelf3._x = robot3._x;
+					world.shelf3._z = robot3._z;
+					world.shelf3.needsUpdate = true;
 				}
 
 				if ((robot4.robotReady == true || robot4.robotDone == false) && robot4.robotPlaced == false)
 				{
-					shelf4._x = robot4._x;
-					shelf4._z = robot4._z;
-					shelf4.needsUpdate = true;
+					world.shelf4._x = robot4._x;
+					world.shelf4._z = robot4._z;
+					world.shelf4.needsUpdate = true;
 				}
 
 
@@ -228,21 +228,81 @@ namespace Controllers
 
 				if (robot1.robotReset == true && robot2.robotReset == true && robot3.robotReset == true && robot4.robotReset == true)
 				{
+					
+
 					robot1.robotStick = false;
 					robot2.robotStick = false;
 					robot3.robotStick = false;
 					robot4.robotStick = false;
-
+					
+					world.shelf1.needsUpdate = false;
+					world.shelf2.needsUpdate = false;
+					world.shelf3.needsUpdate = false;
+					world.shelf4.needsUpdate = false;
 					world.shelf5.needsUpdate = false;
 					world.shelf6.needsUpdate = false;
 					world.shelf7.needsUpdate = false;
 					world.shelf8.needsUpdate = false;
 
-					world.shelf5._z = 300;
-					world.shelf6._z = 300;
-					world.shelf7._z = 300;
-					world.shelf8._z = 300;
+					switch (world.whichRun){
+					case true:
+						world.shelf5._z = 300;
+						world.shelf6._z = 300;
+						world.shelf7._z = 300;
+						world.shelf8._z = 300;
+						world.whichRun = false;
+					break;
+					case false:
+						world.shelf1._z = 300;
+						world.shelf2._z = 300;
+						world.shelf3._z = 300;
+						world.shelf4._z = 300;
+						world.whichRun = true;
+					break;
+					}
+					
 
+					double tempxshelf1 = world.shelf1._x;
+					double tempxshelf2 = world.shelf2._x;
+					double tempxshelf3 = world.shelf3._x;
+					double tempxshelf4 = world.shelf4._x;
+					double tempxshelf5 = world.shelf5._x;
+					double tempxshelf6 = world.shelf6._x;
+					double tempxshelf7 = world.shelf7._x;
+					double tempxshelf8 = world.shelf8._x;
+
+					double tempzshelf1 = world.shelf1._z;
+					double tempzshelf2 = world.shelf2._z;
+					double tempzshelf3 = world.shelf3._z;
+					double tempzshelf4 = world.shelf4._z;
+					double tempzshelf5 = world.shelf5._z;
+					double tempzshelf6 = world.shelf6._z;
+					double tempzshelf7 = world.shelf7._z;
+					double tempzshelf8 = world.shelf8._z;
+
+					world.shelf1._x = tempxshelf5;
+					world.shelf2._x = tempxshelf6;
+					world.shelf3._x = tempxshelf7;
+					world.shelf4._x = tempxshelf8;
+					world.shelf5._x = tempxshelf1;
+					world.shelf6._x = tempxshelf2;
+					world.shelf7._x = tempxshelf3;
+					world.shelf8._x = tempxshelf4;
+
+					world.shelf1._z = tempzshelf5;
+					world.shelf2._z = tempzshelf6;
+					world.shelf3._z = tempzshelf7;
+					world.shelf4._z = tempzshelf8;
+					world.shelf5._z = tempzshelf1;
+					world.shelf6._z = tempzshelf2;
+					world.shelf7._z = tempzshelf3;
+					world.shelf8._z = tempzshelf4;
+					
+
+					world.shelf1.needsUpdate = true;
+					world.shelf2.needsUpdate = true;
+					world.shelf3.needsUpdate = true;
+					world.shelf4.needsUpdate = true;
 					world.shelf5.needsUpdate = true;
 					world.shelf6.needsUpdate = true;
 					world.shelf7.needsUpdate = true;

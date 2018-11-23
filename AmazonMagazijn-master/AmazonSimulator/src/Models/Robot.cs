@@ -85,6 +85,7 @@ namespace Models
 			set { robotreset = value; }
 		}
 
+		
 		public Robot(string rName, double targetX, double targetY, double targetZ, double x, double y, double z, double rotationX, double rotationY, double rotationZ, int counter) : base("robot", x, y, z, rotationX, rotationY, rotationZ)
 		{
 			this._tX = targetX;
