@@ -15,16 +15,75 @@ namespace Models
 		private int hazRunTheSecond = 0;
 		private int _counter; //counter that starts when <thHere == true>, sets <rReady> to true
 		private int ogCounter;
-		public bool vanHere = false; //is there a van docked
-		public bool robotPath = false;
-		public bool robotReady = false; //is the robot ready to receive a shelf
-		public bool robotLoaded = false; //is the robot carrying a shelf
-		public bool robotDropped = false; //has the robot dropped the shelf
-		public bool robotPickedUp = false;
-		public bool robotStick = false;
-		public bool robotPlaced = false;
-		public bool robotDone = true; //has the robot returned to its place
-		public bool robotReset = false;
+		private bool vanhere = false; //is there a van docked
+		public bool vanHere
+		{
+			get { return vanhere; }
+			set { vanhere = value; }
+		}
+
+		private bool robotpath = false;
+		public bool robotPath
+		{
+			get { return robotpath; }
+			set { robotpath = value; }
+		}
+
+		private bool robotready = false; //is the robot ready to receive a shelf
+		public bool robotReady
+		{
+			get { return robotready; }
+			set { robotready = value; }
+		}
+
+		private bool robotloaded = false; //is the robot carrying a shelf
+		public bool robotLoaded
+		{
+			get { return robotloaded; }
+			set { robotloaded = value; }
+		}
+
+		private bool robotdropped = false; //has the robot dropped the shelf
+		public bool robotDropped
+		{
+			get { return robotdropped; }
+			set { robotdropped = value; }
+		}
+
+		private bool robotpickedup = false;
+		public bool robotPickedUp
+		{
+			get { return robotpickedup; }
+			set { robotpickedup = value; }
+		}
+
+		private bool robotstick = false;
+		public bool robotStick
+		{
+			get { return robotstick; }
+			set { robotstick = value; }
+		}
+
+		private bool robotplaced = false;
+		public bool robotPlaced
+		{
+			get { return robotplaced; }
+			set { robotplaced = value; }
+		}
+
+		private bool robotdone = true; //has the robot returned to its place
+		public bool robotDone
+		{
+			get { return robotdone; }
+			set { robotdone = value; }
+		}
+
+		private bool robotreset = false;
+		public bool robotReset
+		{
+			get { return robotreset; }
+			set { robotreset = value; }
+		}
 
 		public Robot(string rName, double targetX, double targetY, double targetZ, double x, double y, double z, double rotationX, double rotationY, double rotationZ, int counter) : base("robot", x, y, z, rotationX, rotationY, rotationZ)
 		{
@@ -67,7 +126,8 @@ namespace Models
 				robotPickedUp = true;
 				this.needsUpdate = true;
 			}
-			if (hazRun == path.Count() && hazRunTheSecond == 2){
+			if (hazRun == path.Count() && hazRunTheSecond == 2)
+			{
 				this._rY = 0;
 				this.robotStick = false;
 				this.robotReset = true;

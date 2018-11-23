@@ -7,13 +7,19 @@ namespace Models
 {
 	public class Van : Model
 	{
-		public bool vanHere = false;
+		private bool vanhere = false;
+		public bool VanHere
+		{
+			get { return vanhere; }
+			set { vanhere = value; }
+		}
 
-		public void SetVanFullAgain(bool full){
+		public void SetVanFullAgain(bool full)
+		{
 			if (full == true)
 			{
 				this.Move(this.x + 2, this.y, this.z);
-				vanHere = false;
+				VanHere = false;
 
 			}
 		}
@@ -27,20 +33,21 @@ namespace Models
 		{
 			if (this._x == -20)
 			{
-				vanHere = true;
+				VanHere = true;
 			}
 			else
 			{
-				vanHere = false;
+				VanHere = false;
 			}
-			if(this._x >= 100){
+			if (this._x >= 100)
+			{
 				RESET();
 			}
 
-			else if (!vanHere)
+			else if (!VanHere)
 			{
 				this.Move(this.x + 1, this.y, this.z);
-				
+
 			}
 
 			return base.Update(tick);
@@ -49,7 +56,7 @@ namespace Models
 
 		private void RESET()
 		{
-			vanHere = false;
+			VanHere = false;
 
 			this._x = -300;
 		}
