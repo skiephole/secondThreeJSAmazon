@@ -138,20 +138,43 @@ namespace Controllers
 
 				if (robot1.robotPickedUp == true)
 				{
-					world.AddShelfToRobot(robot4, shelf5);
+					robot1.robotStick = true;
 					world.RobotGoesBack(robot1, world.defShelfPlace5, "A");
+				}
+				if (robot1.robotStick == true){
+					world.shelf5._x = robot1._x;
+					world.shelf5._z = robot1._z;
+					world.shelf5.needsUpdate = true;
 				}
 				if (robot2.robotPickedUp == true)
 				{
+					robot2.robotStick = true;
 					world.RobotGoesBack(robot2, world.defShelfPlace6, "null1");
+				}
+				if (robot2.robotStick == true){
+					world.shelf6._x = robot2._x;
+					world.shelf6._z = robot2._z;
+					world.shelf6.needsUpdate = true;
 				}
 				if (robot3.robotPickedUp == true)
 				{
+					robot3.robotStick = true;
 					world.RobotGoesBack(robot3, world.defShelfPlace7, "null2");
+				}
+				if (robot3.robotStick == true){
+					world.shelf7._x = robot3._x;
+					world.shelf7._z = robot3._z;
+					world.shelf7.needsUpdate = true;
 				}
 				if (robot4.robotPickedUp == true)
 				{
+					robot4.robotStick = true;
 					world.RobotGoesBack(robot4, world.defShelfPlace8, "null3");
+				}
+				if (robot4.robotStick == true){
+					world.shelf8._x = robot4._x;
+					world.shelf8._z = robot4._z;
+					world.shelf8.needsUpdate = true;
 				}
 
 				if (ReadySetGo == 4)
@@ -193,6 +216,7 @@ namespace Controllers
 					shelf4._z = robot4._z;
 					shelf4.needsUpdate = true;
 				}
+				
 
 				if (robot1.robotPickedUp && robot2.robotPickedUp && robot3.robotPickedUp && robot4.robotPickedUp )
 				{

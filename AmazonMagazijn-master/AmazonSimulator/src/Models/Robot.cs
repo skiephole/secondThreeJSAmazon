@@ -21,6 +21,7 @@ namespace Models
 		public bool robotLoaded = false; //is the robot carrying a shelf
 		public bool robotDropped = false; //has the robot dropped the shelf
 		public bool robotPickedUp = false;
+		public bool robotStick = false;
 		public bool robotPlaced = false;
 		public bool robotDone = true; //has the robot returned to its place
 		public bool robotReset = false;
@@ -68,7 +69,7 @@ namespace Models
 			}
 			if (hazRun == path.Count() && hazRunTheSecond == 2){
 				this._rY = 0;
-				// this.robotReset = true;
+				this.robotReset = true;
 				this.needsUpdate = true;
 			}
 		}

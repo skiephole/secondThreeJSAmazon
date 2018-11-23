@@ -17,7 +17,7 @@ namespace Models
 
 		Robot robot1, robot2, robot3, robot4;
 		Van van;
-		Shelf shelf1, shelf2, shelf3, shelf4, shelf5, shelf6, shelf7, shelf8;
+		public Shelf shelf1, shelf2, shelf3, shelf4, shelf5, shelf6, shelf7, shelf8;
 
 		public string defShelfPlace5, defShelfPlace6, defShelfPlace7, defShelfPlace8;
 
