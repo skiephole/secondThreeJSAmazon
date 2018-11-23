@@ -225,6 +225,26 @@ namespace Controllers
 
 				if (robot1.robotReset == true && robot2.robotReset == true && robot3.robotReset == true && robot4.robotReset == true)
 				{
+					robot1.robotStick = false;
+					robot2.robotStick = false;
+					robot3.robotStick = false;
+					robot4.robotStick = false;
+
+					world.shelf5.needsUpdate = false;
+					world.shelf6.needsUpdate = false;
+					world.shelf7.needsUpdate = false;
+					world.shelf8.needsUpdate = false;
+
+					world.shelf5._z = 300;
+					world.shelf6._z = 300;
+					world.shelf7._z = 300;
+					world.shelf8._z = 300;
+
+					world.shelf5.needsUpdate = true;
+					world.shelf6.needsUpdate = true;
+					world.shelf7.needsUpdate = true;
+					world.shelf8.needsUpdate = true;
+
 					ReadySetGo = 0;
 					cycles++;
 					
@@ -232,6 +252,7 @@ namespace Controllers
 					robot2.RESET();
 					robot3.RESET();
 					robot4.RESET();
+					
 					van.SetVanFullAgain(true);
 				}
 

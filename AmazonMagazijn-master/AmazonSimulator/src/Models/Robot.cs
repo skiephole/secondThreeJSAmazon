@@ -69,6 +69,7 @@ namespace Models
 			}
 			if (hazRun == path.Count() && hazRunTheSecond == 2){
 				this._rY = 0;
+				this.robotStick = false;
 				this.robotReset = true;
 				this.needsUpdate = true;
 			}
