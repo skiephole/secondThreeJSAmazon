@@ -26,20 +26,20 @@ namespace Models
 		
 		public World()
 		{
-			robot1 = CreateRobot("r1", 0, 0.301, 0, 50);
-			robot2 = CreateRobot("r2", 0, 0.301, -4, 100);
-			robot3 = CreateRobot("r3", 0, 0.301, -8, 150);
-			robot4 = CreateRobot("r4", 0, 0.301, -12, 200);
+			robot1 = CreateRobot("r1", 0, 0.891, 0, 50);
+			robot2 = CreateRobot("r2", 0, 0.891, -4, 100);
+			robot3 = CreateRobot("r3", 0, 0.891, -8, 150);
+			robot4 = CreateRobot("r4", 0, 0.891, -12, 200);
 			van = CreateTH(-150, 0.001, -21);
 			MakeNodes(23/* + 64*/);
-			shelf1 = CreateShelf(-300, 1.401, -300);
-			shelf2 = CreateShelf(-300, 1.401, -300);
-			shelf3 = CreateShelf(-300, 1.401, -300);
-			shelf4 = CreateShelf(-300, 1.401, -300);
-			shelf5 = CreateShelf(-300, 1.401, -300);
-			shelf6 = CreateShelf(-300, 1.401, -300);
-			shelf7 = CreateShelf(-300, 1.401, -300);
-			shelf8 = CreateShelf(-300, 1.401, -300);
+			shelf1 = CreateShelf(-300, 1.801, -300);
+			shelf2 = CreateShelf(-300, 1.801, -300);
+			shelf3 = CreateShelf(-300, 1.801, -300);
+			shelf4 = CreateShelf(-300, 1.801, -300);
+			shelf5 = CreateShelf(-300, 1.801, -300);
+			shelf6 = CreateShelf(-300, 1.801, -300);
+			shelf7 = CreateShelf(-300, 1.801, -300);
+			shelf8 = CreateShelf(-300, 1.801, -300);
 			StartShelves();
 			
 		}

@@ -39,8 +39,11 @@ window.onload = function ()
 
 		window.addEventListener('resize', onWindowResize, false);
 
+		var floorTexture = new THREE.ImageUtils.loadTexture( 'textures/plane/floor1.jpg' );
+		floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
+		floorTexture.repeat.set( 10, 10 );
 		var geometry = new THREE.PlaneGeometry(70, 60, 70);
-		var material = new THREE.MeshPhongMaterial({ color: 0x6e7d93, side: THREE.DoubleSide });
+		var material = new THREE.MeshPhongMaterial( { map: floorTexture, side: THREE.DoubleSide } );
 		var plane = new THREE.Mesh(geometry, material);
 		plane.rotation.x = Math.PI / 2.0;
 		plane.position.x = 0;
@@ -49,7 +52,7 @@ window.onload = function ()
 		plane.recieveShadow = true;
 		plane.castShadow = true;
 		scene.add(plane);
-
+		
 		var sphericalSkyboxGeometry = new THREE.SphereGeometry(200, 64, 64);
 		var sphericalSkyboxMaterial = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("textures/Skybox/fridge.jpg"), side: THREE.DoubleSide });
 		var SphericalBox = new THREE.Mesh(sphericalSkyboxGeometry, sphericalSkyboxMaterial);
@@ -67,6 +70,7 @@ window.onload = function ()
 		light.shadowCameraTop = 0.5;
 		light.shadowCameraBottom = -0.5;
 		scene.add(light);
+
 
 	}
 

@@ -38,11 +38,11 @@ class gNode extends THREE.Group
 
 		this._loadState = LoadStates.LOADING;
 
-		var nodeGeometry = new THREE.PlaneGeometry(2, 2, 2);
-		var nodeMaterial = new THREE.MeshLambertMaterial({ color: 0x000000, side: THREE.DoubleSide });
+		var nodeGeometry = new THREE.CircleGeometry(0.8, 32);
+		var nodeMaterial = new THREE.MeshLambertMaterial({ color: 0x2c3e50, side: THREE.DoubleSide });
 		var node = new THREE.Mesh(nodeGeometry, nodeMaterial);
 
-		addPointLight(node, 0xd80808, 0, 0, -1, 2, 4);
+		addPointLight(node, 0xd0051ff, 0, 0, -1, 2, 4);
 
 		this.add(node);
 	}

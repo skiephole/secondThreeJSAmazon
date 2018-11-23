@@ -57,7 +57,7 @@ class gRobot extends THREE.Group
 				object.receiveShadow = true;
 				object.castShadow = true;
 
-				addPointLight(selfRef, 0xffffff, 0, 0, 0, 0.5, 10);
+				addPointLight(selfRef, 0x02ff2c, 0, 0, 0, 2, 10);
 
 				selfRef.add(object);
 			}

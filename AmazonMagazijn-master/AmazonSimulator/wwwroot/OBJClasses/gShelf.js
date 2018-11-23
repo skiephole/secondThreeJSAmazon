@@ -58,7 +58,7 @@ class gShelf extends THREE.Group
 				object.receiveShadow = true;
 				object.castShadow = true;
 
-				addPointLight(selfRef, 0xffffff, 0, 0, 0, 0.5, 10);
+				addPointLight(selfRef, 0xff0202, 0, 0, 0, 2, 10);
 
 				selfRef.add(object);
 			}
